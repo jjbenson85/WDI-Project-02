@@ -1,18 +1,17 @@
 require('dotenv').config()
+const establishmentsController = require('./controllers/establishments')
+
 
 const express = require('express')
-const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 
 const app = express()
-const routes = require('./config/routes')
 
-mongoose.connect(process.env.MONGODB_URI)
 
 app.use(express.static(`${__dirname}/dist`))
 app.use(bodyParser.json())
 
-app.use('/api', routes)
+app.get('/api/establishments', establishmentsController.index)
 
 app.get('/*', (req, res) => res.sendFile(`${__dirname}/dist/index.html`))
 
