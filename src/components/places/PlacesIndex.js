@@ -68,7 +68,8 @@ class PlacesIndex extends React.Component{
 
   getFSA(lat, lon){
     axios
-      .get(`https://api.ratings.food.gov.uk/Establishments/?maxDistanceLimit=1&longitude=${lon}&latitude=${lat}&BusinessTypeId=1&sortOptionKey=distance&pageSize=150`, {headers: {accept: 'application/json', 'x-api-version': 2}})
+      // .get(`http://api.ratings.food.gov.uk/Establishments/?maxDistanceLimit=1&longitude=${lon}&latitude=${lat}&BusinessTypeId=1&sortOptionKey=distance&pageSize=150`, {headers: {accept: 'application/json', 'x-api-version': 2}})
+      .get(`/api/establishments/?longitude=${lon}&latitude=${lat}`)
       .then( res => {
         // mapping over res to change BusinessName to lower case and removing 'and'
         const newFsa = res.data.establishments.map(est => {

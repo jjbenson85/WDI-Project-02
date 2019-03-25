@@ -40,7 +40,7 @@ class PlacesShow extends React.Component{
       user_rating: userRating,
       menu_url: menuUrl
     } = this.state.zomato
-ca
+
     featuredImage = featuredImage === '' ? `../../../assets/images/placeHolderImages/placeholder${(''+this.props.match.params.id).split('')[((''+this.props.match.params.id.length)-1)]}.jpg` : featuredImage
 
     return(

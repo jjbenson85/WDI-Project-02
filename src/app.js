@@ -1,6 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
+
+import axios from 'axios'
 // import 'bulma'
 import './scss/style.scss'
 
@@ -17,7 +19,13 @@ class App extends React.Component {
 
     this.state={}
     this.updateBg = this.updateBg.bind(this)
+
+    axios.get('/assets/fsa_basic.json')
+      .then((data)=> console.log(data))
+      .catch((err)=> console.error(err))
   }
+
+
 
   updateBg(){
     const rndm = Math.random()
