@@ -18,6 +18,9 @@ class Map extends React.Component {
       const markerElement = document.createElement('DIV')
       markerElement.className = 'custom-marker'
       const {latitude, longitude} = data.coords
+      //Buckingham Palace for screenshot
+      // const latitude = 51.501364
+      // const longitude= -0.14189
       this.placeMarker(longitude,latitude, false)
       this.placeMarker(this.props.location.longitude,this.props.location.latitude, markerElement)
       this.props.bound && this.map.fitBounds([[
@@ -34,6 +37,8 @@ class Map extends React.Component {
       container: this.mapDiv,
       style: 'mapbox://styles/mapbox/light-v9',
       center: [this.props.location.longitude,this.props.location.latitude],
+      //Buckingham Palace for screenshot
+      // center: [-0.14189,51.501364],
       zoom: this.props.zoom
     })
 
